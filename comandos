@@ -1,1 +1,2 @@
 php artisan serve inicia um servidor
+php artisan make:controller TesteController

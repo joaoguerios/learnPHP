@@ -27,6 +27,10 @@ Route::get('/rota1','falhaController@principal')->name('site.rota1');
 Route::fallback(function(){
     return redirect()->route('site.principal');
 }); //quando o usuario errar vair cair aqui e podera ser redirecionado para a pagina principal
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('site.teste');
+// Route::get('/teste/{p1}/{p2}', function($p1,$p2){
+//     echo "o resultado de $p1+$p2=".($p1+$p2);
+// })->name('site.teste');
 
 //redirecionamentos
 // Route::get('/falha',function(){
@@ -45,9 +49,7 @@ Route::prefix('/store')->group(function(){ //server para criar grupos usando a u
     Route::get('/clientes',function(){
         return 'clientes';
     })->name('store.clientes');
-    Route::get('/fornecedores',function(){
-        return 'fornecedores';
-    })->name('store.fornecedores');
+    Route::get('/fornecedores','FornecedorController@index')->name('store.fornecedores');
     Route::get('/produtos',function(){
         return 'produtos';
     })->name('store.produtos');
