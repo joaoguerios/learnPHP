@@ -1,2 +1,4 @@
 php artisan serve inicia um servidor
 php artisan make:controller TesteController
+php artisan make:model Contatos -m     cria uma "classe" e o -m cria um migration para auxiliar a gravar no BD
+php artisan migrate
