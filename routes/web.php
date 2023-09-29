@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/','PrincipalController@principal')->name('site.principal');
+Route::post('/','ContatoController@save')->name('site.contatos');
 Route::get('/sobrenos','SobreNosController@principal')->name('site.sobrenos');
 Route::get('/contatos','ContatoController@principal')->name('site.contatos');
-Route::post('/contatos','ContatoController@principal')->name('site.contatos');
+Route::post('/contatos','ContatoController@save')->name('site.contatos');
 Route::get('/contatos/{name?}/{cat_id?}', function(string $name='nao enviado',int $cat_id=1){
     echo "ola $name assunto $cat_id";
 })->where('cat_id','[0-9]+');
