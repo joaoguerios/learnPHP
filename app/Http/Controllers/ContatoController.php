@@ -15,16 +15,21 @@ class ContatoController extends Controller
         // $contato->motivo=$request->input('motivo');
         // print_r($contato->getAttributes());
         // $contato->save();
-        
-        
         // $contato->fill($request->all());
         // $contato->save();
         return view('site.contatos');
     }
 
     public function save(Request $request){
+        $request->validate([
+            'name'=>'required|max:50',
+            'email'=>'required|max:50|email',
+            'telefone'=>'required|min:11', //41991040301
+            'motivo'=>'required'
+        ]);
         $contato=new Contato();
         $contato->fill($request->all());
-        print_r($contato->getAttributes());
+        $contato->save();
+        return redirect()->route('site.contatoSucesso');
     }
 }

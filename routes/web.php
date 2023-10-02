@@ -19,19 +19,13 @@ Route::post('/','ContatoController@save')->name('site.contatos');
 Route::get('/sobrenos','SobreNosController@principal')->name('site.sobrenos');
 Route::get('/contatos','ContatoController@principal')->name('site.contatos');
 Route::post('/contatos','ContatoController@save')->name('site.contatos');
-Route::get('/contatos/{name?}/{cat_id?}', function(string $name='nao enviado',int $cat_id=1){
-    echo "ola $name assunto $cat_id";
-})->where('cat_id','[0-9]+');
-Route::get('/login',function(){
-    return 'login';
-})->name('site.login');
-Route::get('/rota1','falhaController@principal')->name('site.rota1');
+Route::get('/contatos/Sucesso','contatoSucessoController@principal')->name('site.contatoSucesso');
+// Route::get('/contatos/{name?}/{cat_id?}', function(string $name='nao enviado',int $cat_id=1){
+//     echo "ola $name assunto $cat_id";
+// })->where('cat_id','[0-9]+');
 Route::fallback(function(){
     return redirect()->route('site.principal');
 }); //quando o usuario errar vair cair aqui e podera ser redirecionado para a pagina principal
-Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('site.teste');
-// Route::get('/teste/{p1}/{p2}', function($p1,$p2){
-//     echo "o resultado de $p1+$p2=".($p1+$p2);
 // })->name('site.teste');
 
 //redirecionamentos
