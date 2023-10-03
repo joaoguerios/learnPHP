@@ -33,3 +33,7 @@ body {
     margin: auto;
     justify-content: center;
 }
+
+.erro {
+    background-color: rgba(0, 17, 255, 0.342);
+}

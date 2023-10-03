@@ -45,3 +45,5 @@ print_r($contato->getAttributes());
    php artisan make:seeder FornecedorSeeder
    php artisan db:seed --class=nomeDaClasse
    php artisan make:factory ContatoFactory --model Contato
+
+   unique:tabela  para verificar unicidade ex:usuario
