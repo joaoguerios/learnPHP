@@ -12,7 +12,7 @@
         </ul>
         <div class="text-end">
           <a href="{{route('site.login')}}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          <a href="{{route('site.criarConta')}}"><button type="button" class="btn btn-warning">Sign-up</button></a>
         </div>
       </div>
     </div>

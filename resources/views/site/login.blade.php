@@ -34,9 +34,12 @@
               <label class="form-check-label" for="flexCheckDefault">
                 Remember me
               </label>
+              <a href="{{route('site.criarConta')}}"><p>Não tenho conta</p></a>
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Acessar</button>
+            {{isset($erro) && $erro != '' ? $erro: ''}}
           </form>
+          
     </div>
     @include('site.layouts.footer')
 </body>

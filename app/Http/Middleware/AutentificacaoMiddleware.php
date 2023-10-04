@@ -15,10 +15,11 @@ class AutentificacaoMiddleware
      */
     public function handle($request, Closure $next, $metodo_autetificacao)
     {
-        echo $metodo_autetificacao;
-        if (true){
+        session_start();
+        if(isset($_SESSION['email']) && $_SESSION['email'] != ""){
             return $next($request);
+        }else{
+            return redirect()->route('site.login',['erro'=>2]);
         }
-        return Response('autentificacao middleware');
     }
 }
