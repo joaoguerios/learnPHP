@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Middleware\LogAcessoMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,21 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/','PrincipalController@principal')->name('site.principal');
-Route::post('/','ContatoController@save')->name('site.contatos');
 Route::get('/sobrenos','SobreNosController@principal')->name('site.sobrenos');
 Route::get('/contatos','ContatoController@principal')->name('site.contatos');
-Route::post('/contatos','ContatoController@save')->name('site.contatos');
 Route::get('/contatos/Sucesso','contatoSucessoController@principal')->name('site.contatoSucesso');
+Route::get('/login','loginController@principal')->name('site.login');
+Route::post('/login','loginController@autenticar')->name('site.login');
+
+Route::post('/','ContatoController@save')->name('site.contatos');
+Route::post('/contatos','ContatoController@save')->name('site.contatos');
+
+Route::fallback(function(){return redirect()->route('site.principal');}); \
+
+Route::middleware('autentificacao:padrao')->prefix('/store')->group(function(){ //server para criar grupos usando a url /store/algum
+    Route::get('/clientes',function(){return 'clientes';})->name('store.clientes');
+    Route::get('/fornecedores','FornecedorController@index')->name('store.fornecedores');
+    Route::get('/produtos',function(){return 'produtos';})->name('store.produtos');
+});
+
 // Route::get('/contatos/{name?}/{cat_id?}', function(string $name='nao enviado',int $cat_id=1){
 //     echo "ola $name assunto $cat_id";
 // })->where('cat_id','[0-9]+');
-Route::fallback(function(){
-    return redirect()->route('site.principal');
-}); //quando o usuario errar vair cair aqui e podera ser redirecionado para a pagina principal
-// })->name('site.teste');
-
+//quando o usuario errar vair cair aqui e podera ser redirecionado para a pagina principal
 //redirecionamentos
 // Route::get('/falha',function(){
 //     echo "falha";
@@ -41,14 +49,5 @@ Route::fallback(function(){
 
 //colocando uma interrogacao nao sao obrigatorio
 
-Route::prefix('/store')->group(function(){ //server para criar grupos usando a url /store/algum
-    Route::get('/clientes',function(){
-        return 'clientes';
-    })->name('store.clientes');
-    Route::get('/fornecedores','FornecedorController@index')->name('store.fornecedores');
-    Route::get('/produtos',function(){
-        return 'produtos';
-    })->name('store.produtos');
-});
 
 

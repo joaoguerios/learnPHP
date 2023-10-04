@@ -47,3 +47,5 @@ print_r($contato->getAttributes());
    php artisan make:factory ContatoFactory --model Contato
 
    unique:tabela  para verificar unicidade ex:usuario
+
+php artisan make:middleware LogAcessoMiddleware

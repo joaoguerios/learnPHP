@@ -11,7 +11,7 @@
           <li><a href="{{ route ('site.sobrenos') }}" class="nav-link px-2 text-white">Sobre-nos</a></li>
         </ul>
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <a href="{{route('site.login')}}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
           <button type="button" class="btn btn-warning">Sign-up</button>
         </div>
       </div>
