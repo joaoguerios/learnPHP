@@ -11,8 +11,6 @@
                         </svg>
                     </a>
                     <ul class="nav col-md-4 justify-content-end">
-                        <li class="nav-item"><a href="{{ route ('site.principal') }}"
-                                class="nav-link px-2 text-body-secondary">Home</a></li>
                         <li class="nav-item"><a href="{{ route ('site.contatos') }}"
                                 class="nav-link px-2 text-body-secondary">Suporte</a></li>
                         <li class="nav-item"><a href="{{ route ('site.sobrenos') }}"

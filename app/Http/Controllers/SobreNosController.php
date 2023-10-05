@@ -11,6 +11,6 @@ class SobreNosController extends Controller
     //     $this->middleware(LogAcessoMiddleware::class);
     // }
     public function principal(){
-        return view('site.sobrenos');
+        return view('site.tabela');
     }
 }

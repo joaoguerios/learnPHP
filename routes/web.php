@@ -26,13 +26,13 @@ Route::post('criarConta','criarContaController@criar')->name('site.criarConta');
 Route::post('/','ContatoController@save')->name('site.contatos');
 Route::post('/contatos','ContatoController@save')->name('site.contatos');
 
-Route::fallback(function(){return redirect()->route('site.principal');}); \
+Route::fallback(function(){return redirect()->route('site.principal');});
 
 Route::middleware('autentificacao:padrao')->prefix('/store')->group(function(){ //server para criar grupos usando a url /store/algum
     Route::get('/home','homeController@principal')->name('store.home');
     Route::get('/sair','loginController@sair')->name('store.sair');
     Route::get('/cliente','clienteController@principal')->name('store.clientes');
-    Route::get('/fornecedore','FornecedorController@index')->name('store.fornecedores');
+    Route::get('/fornecedore','FornecedorController@principal')->name('store.fornecedores');
     Route::get('/produto','produtoController@principal')->name('store.produtos');
 });
 
