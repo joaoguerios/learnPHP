@@ -32,7 +32,10 @@ Route::middleware('autentificacao:padrao')->prefix('/store')->group(function(){ 
     Route::get('/home','homeController@principal')->name('store.home');
     Route::get('/sair','loginController@sair')->name('store.sair');
     Route::get('/cliente','clienteController@principal')->name('store.clientes');
-    Route::get('/fornecedore','FornecedorController@principal')->name('store.fornecedores');
+    Route::get('/fornecedor','FornecedorController@principal')->name('store.fornecedores');
+    Route::get('/fornecedor/criar','FornecedorController@criar')->name('store.fornecedores.criar');
+    Route::post('/fornecedor/criar','FornecedorController@criar')->name('store.fornecedores.criar');
+    Route::post('/fornecedor/pesquisa','FornecedorController@pesquisa')->name('store.fornecedores.pesquisa');
     Route::get('/produto','produtoController@principal')->name('store.produtos');
 });
 
